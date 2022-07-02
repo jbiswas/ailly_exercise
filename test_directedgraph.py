@@ -13,6 +13,11 @@ class DirectedGraphTest(unittest.TestCase):
         graph = DirectedGraph([1, 2], [(1,2)])
         self.assertEquals(1, graph.get_number_of_edges())
         self.assertEquals(2, graph.get_number_of_vertices())
+
+    def test_graph_with_duplicates(self):
+        graph = DirectedGraph([1, 2, 2], [(1,2), (1,2)])
+        self.assertEquals(1, graph.get_number_of_edges())
+        self.assertEquals(2, graph.get_number_of_vertices())
         
     def test_get_indegrees_for_graph_with_one_edge(self):
         graph = DirectedGraph([1, 2], [(1,2)])

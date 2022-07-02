@@ -1,8 +1,8 @@
 class DirectedGraph:
     
     def __init__(self, vertices, edges):
-        self.edges = edges
-        self.vertices = vertices
+        self.edges = set(edges)
+        self.vertices = set(vertices)
 
     def get_number_of_edges(self):
         return len(self.edges)
