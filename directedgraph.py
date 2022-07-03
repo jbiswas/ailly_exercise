@@ -1,4 +1,5 @@
 """Directed Graph implementation for Ailly"""
+
 class DirectedGraph:
     """Directed Graph using Adjacency Set. Use pickle to serialize/deserialize"""
 
@@ -16,10 +17,7 @@ class DirectedGraph:
 
     def get_number_of_edges(self):
         """Returns total number of edges in the graph"""
-        edges = 0
-        for vertex in self.graph:
-            edges += len(self.graph[vertex])
-        return edges
+        return sum(list(map(len, self.graph.values())))
 
     def get_number_of_vertices(self):
         """Returns total number of vertices in the graph"""
