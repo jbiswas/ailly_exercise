@@ -1,6 +1,6 @@
 """Directed Graph implementation for Ailly"""
 class DirectedGraph:
-    """Directed Graph using Adjacency Set"""
+    """Directed Graph using Adjacency Set. Use pickle to serialize/deserialize"""
 
     def __init__(self, vertices, edges):
         if any(filter(lambda x: x[0] not in vertices or x[1] not in vertices or x[0] == x[1], edges)):
@@ -34,4 +34,3 @@ class DirectedGraph:
         """Returns outdegrees of vertex in graph.
            Expects caller to know if vertex exists in graph"""
         return len(self.graph[vertex])
-        

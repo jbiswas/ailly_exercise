@@ -38,6 +38,7 @@ class DirectedGraphTest(unittest.TestCase):
             DirectedGraph([1], [(1,1)])
 
     def test_serialize_deserialize(self):
+        """Nothing special to be done in DirectedGraph to serialize and deserialize"""
         original_graph = DirectedGraph([1,2], [(1,2)])
         backup = pickle.dumps(original_graph)
         recovered_graph = pickle.loads(backup)
