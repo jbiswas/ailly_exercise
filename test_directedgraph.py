@@ -29,6 +29,14 @@ class DirectedGraphTest(unittest.TestCase):
         self.assertEquals(1, graph.get_outdegrees(1))
         self.assertEquals(0, graph.get_outdegrees(2))
 
+    def test_cannot_create_edge_if_no_vertex_exists(self):
+        with self.assertRaises(ValueError):
+            graph = DirectedGraph([], [(0,1)])
+
+    def test_cannot_create_edge_to_same_vertex(self):
+        with self.assertRaises(ValueError):
+            graph = DirectedGraph([1], [(1,1)])
+
     def test_serialize_deserialize(self):
         original_graph = DirectedGraph([1,2], [(1,2)])
         backup = pickle.dumps(original_graph)
