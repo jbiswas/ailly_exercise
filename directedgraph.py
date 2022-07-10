@@ -4,7 +4,10 @@ class DirectedGraph:
     """Directed Graph using Adjacency Set. Use pickle to serialize/deserialize"""
 
     def __init__(self, vertices, edges):
-        if any(filter(lambda x: x[0] not in vertices or x[1] not in vertices or x[0] == x[1], edges)):
+        self_adjacent = lambda edge: edge[0] == edge[1]
+        missing_vertex = lambda edge: edge[0] not in vertices or edge[1] not in vertices
+
+        if any(filter(lambda edge: missing_vertex(edge) or self_adjacent(edge), edges)):
             raise ValueError
 
         self.graph = dict.fromkeys(vertices)
